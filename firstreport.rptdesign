@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.2.v20140211-1400 Build &lt;4.3.2.v20140218-1056></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/reporting</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">YWFkaQ==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="8">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">emp_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Employee Name</text-property>
+                    <text-property name="heading">emp_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">age</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Age</text-property>
+                    <text-property name="heading">age</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">salary</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Salary</text-property>
+                    <text-property name="heading">salary</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">designation</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">designation</text-property>
+                    <text-property name="heading">designation</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">comp_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">comp_name</text-property>
+                    <text-property name="heading">comp_name</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">emp_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">age</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">salary</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">designation</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">comp_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">emp_name</property>
+                    <property name="nativeName">emp_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">age</property>
+                    <property name="nativeName">age</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">salary</property>
+                    <property name="nativeName">salary</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">designation</property>
+                    <property name="nativeName">designation</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">comp_name</property>
+                    <property name="nativeName">comp_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select emp_name,age,salary,designation,comp_name
+from employee
+inner join company 
+on employee.comp_id = company.comp_id]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>emp_name</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>emp_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>emp_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>age</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>11</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>age</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>age</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>salary</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>11</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>salary</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>salary</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#000000</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#000000</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#000000</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#000000</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="NewStyle" id="423">
+            <property name="backgroundColor">#000080</property>
+            <property name="fontSize">17pt</property>
+            <property name="color">#FFFFFF</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="257">
+            <column id="258"/>
+            <row id="259">
+                <cell id="260">
+                    <table id="277">
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">emp_name</property>
+                                <text-property name="displayName">Employee Name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["emp_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">age</property>
+                                <text-property name="displayName">Age</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["age"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">salary</property>
+                                <text-property name="displayName">Salary</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["salary"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Aggregation</property>
+                                <text-property name="displayName">total salary</text-property>
+                                <property name="dataType">float</property>
+                                <property name="aggregateFunction">RUNNINGSUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["salary"]</expression>
+                                    </structure>
+                                </list-property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Aggregation_1</property>
+                                <text-property name="displayName">serialno</text-property>
+                                <property name="dataType">integer</property>
+                                <simple-property-list name="aggregateOn">
+                                    <value>companyName</value>
+                                </simple-property-list>
+                                <property name="aggregateFunction">RUNNINGCOUNT</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                    </structure>
+                                </list-property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">comp_name</property>
+                                <text-property name="displayName">comp_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["comp_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <column id="339"/>
+                        <column id="406"/>
+                        <column id="290"/>
+                        <column id="291"/>
+                        <column id="292"/>
+                        <header>
+                            <row id="278">
+                                <cell id="336">
+                                    <label id="341">
+                                        <property name="backgroundColor">navy</property>
+                                        <property name="fontSize">17pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <property name="marginTop">10pt</property>
+                                        <property name="paddingTop">2pt</property>
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Serial No:</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="403">
+                                    <property name="style">NewStyle</property>
+                                    <label id="407">
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <property name="marginTop">10pt</property>
+                                        <property name="paddingTop">2pt</property>
+                                        <text-property name="text">Company Name</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="279">
+                                    <label id="309">
+                                        <property name="backgroundColor">navy</property>
+                                        <property name="fontFamily">sans-serif</property>
+                                        <property name="fontSize">17pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <property name="marginTop">10pt</property>
+                                        <property name="paddingTop">2pt</property>
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Employee Name</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="280">
+                                    <label id="311">
+                                        <property name="backgroundColor">navy</property>
+                                        <property name="fontSize">17pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <property name="marginTop">10pt</property>
+                                        <property name="paddingTop">2pt</property>
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Age</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="281">
+                                    <label id="313">
+                                        <property name="backgroundColor">navy</property>
+                                        <property name="fontSize">17pt</property>
+                                        <property name="color">white</property>
+                                        <property name="marginTop">10pt</property>
+                                        <property name="paddingTop">2pt</property>
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Salary</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <group id="409">
+                            <property name="groupName">companyName</property>
+                            <expression name="keyExpr" type="javascript">row["comp_name"]</expression>
+                            <structure name="toc">
+                                <expression name="expressionValue" type="javascript">row["comp_name"]</expression>
+                            </structure>
+                            <property name="hideDetail">false</property>
+                            <header>
+                                <row id="410">
+                                    <cell id="411">
+                                        <data id="422">
+                                            <property name="resultSetColumn">comp_name</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="412"/>
+                                    <cell id="413"/>
+                                    <cell id="414"/>
+                                    <cell id="415"/>
+                                </row>
+                            </header>
+                            <footer>
+                                <row id="416">
+                                    <cell id="417"/>
+                                    <cell id="418"/>
+                                    <cell id="419"/>
+                                    <cell id="420"/>
+                                    <cell id="421"/>
+                                </row>
+                            </footer>
+                        </group>
+                        <detail>
+                            <row id="282">
+                                <cell id="337">
+                                    <data id="340">
+                                        <property name="backgroundColor">gray</property>
+                                        <property name="fontSize">15pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <property name="textAlign">left</property>
+                                        <property name="resultSetColumn">Aggregation_1</property>
+                                    </data>
+                                </cell>
+                                <cell id="404">
+                                    <data id="408">
+                                        <property name="backgroundColor">gray</property>
+                                        <property name="fontSize">15pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <property name="textAlign">left</property>
+                                        <property name="resultSetColumn">comp_name</property>
+                                    </data>
+                                </cell>
+                                <cell id="283">
+                                    <data id="310">
+                                        <property name="backgroundColor">gray</property>
+                                        <property name="fontSize">15pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <property name="marginTop">5pt</property>
+                                        <property name="textAlign">left</property>
+                                        <property name="resultSetColumn">emp_name</property>
+                                    </data>
+                                </cell>
+                                <cell id="284">
+                                    <data id="312">
+                                        <property name="backgroundColor">gray</property>
+                                        <property name="fontSize">15pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <property name="textAlign">left</property>
+                                        <property name="resultSetColumn">age</property>
+                                    </data>
+                                </cell>
+                                <cell id="285">
+                                    <data id="314">
+                                        <property name="backgroundColor">gray</property>
+                                        <property name="fontSize">15pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <property name="resultSetColumn">salary</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="286">
+                                <cell id="338">
+                                    <label id="342">
+                                        <property name="backgroundColor">teal</property>
+                                        <property name="fontSize">15pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <text-property name="text">TOTAL SALARY</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="405">
+                                    <label id="424">
+                                        <property name="backgroundColor">teal</property>
+                                        <property name="fontSize">15pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                    </label>
+                                </cell>
+                                <cell id="287">
+                                    <label id="328">
+                                        <property name="backgroundColor">teal</property>
+                                        <property name="fontSize">15pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <text-property name="text"></text-property>
+                                    </label>
+                                </cell>
+                                <cell id="288">
+                                    <label id="329">
+                                        <property name="backgroundColor">teal</property>
+                                        <property name="fontSize">15pt</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                    </label>
+                                </cell>
+                                <cell id="289">
+                                    <data id="315">
+                                        <property name="backgroundColor">teal</property>
+                                        <property name="fontSize">15pt</property>
+                                        <property name="color">white</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <property name="textAlign">justify</property>
+                                        <property name="resultSetColumn">Aggregation</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>
